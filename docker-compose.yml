@@ -1,0 +1,9 @@
+version: "3.6"
+services:
+  flask:
+    image: spell-checker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./:/app"
