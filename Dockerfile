@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Jigs
+MAINTAINER Thava Kanaganathan
 
 RUN apt update -y && \
     apt install -y python3-pip python3-dev
