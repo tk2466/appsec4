@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <br>
+  <br>
+  <div class="article-metadata">
+    <h4> Spell Check details:</h4>
+  </div>
+  <article class="media content-section">
+    <div class="media-body">
+      <p id="queryid" class="article-title">Query ID: {{ queryid }}</p>
+      <p id="username" class="article-title">Username: {{ username }}</p>
+      <p id="querytext" class="article-title">Query Text: {{ querytext }}</p>
+      <p id="queryresults" class="article-title">Query Result: {{ queryresult }}</p>
+    </div>
+  </article>
+{% endblock content %}

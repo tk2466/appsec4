@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+<h3><a href="#">Spell Check history for: {{ current_user.username }}</a></h3>
+        <article class="media content-section">
+          <div class="media-body">
+            <h5 id="numqueries">Number of Queries: {{ numqueries }}</h5>
+          </div>
+        </article>
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <table align=center>
+                <tr>
+                    <h5>Query IDs:</h5>
+                </tr>
+                <tr>
+                    <td>
+                        {% for idnum in allids %}
+                            <li id="query{{ idnum.id }}" class="article-content"><a href="{{ url_for('query', qid=idnum.id) }}"> Query# {{ idnum.id }}</a></li>
+                        {% endfor %}
+                    </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </article>
+{% endblock content %}

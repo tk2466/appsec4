@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br>
+    <br>
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">User Login History</legend>
+                <div class="form-group">
+                    {{ form.uid.label(class="form-control-label") }}
+                    {% if form.uid.errors %}
+                        {{ form.uid(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.uid.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.uid(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <h3>Login history for the user {{ user }}</h3>
+                    <article class="media content-section">
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <table align=center>
+                            <tr>
+                                <th><h5>Login time</h5></th>
+                                <th><h5>Logout time</h5></th>
+                            </tr>
+                            {% for idnum in allids %}
+                              <tr>
+                                <td>
+                                  <p id="login{{ idnum.id }}" class="article-content"> {{ idnum.login }} </p>
+                                </td>
+                                <td>
+                                  <p id="logout{{ idnum.id }}" class="article-content"> {{ idnum.logout }} </p>
+                                </td>
+                              </tr>
+                            {% endfor %}
+                          </table>
+                        </div>
+                      </div>
+                    </article>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit_button(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

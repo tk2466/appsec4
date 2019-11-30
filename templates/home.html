@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br>
+    <br>
+    {% for shs in sh %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <p class="mr-2">Spell Check history for: {{ current_user.username }}</p>
+                <!--p><small class="text-muted">Login Time: {{ shs.login }} || Logout Time: {{ shs.logout }}</small></p-->
+            </div>
+            <p><a class="article-title" href=#>Input Text: {{ shs.query_text }}</a></p>
+            <p class="article-content">Misspelled Words: {{ shs.query_result }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
