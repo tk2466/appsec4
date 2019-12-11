@@ -1,9 +1,21 @@
-version: "3.6"
+version: "3.3"
 services:
   flask:
-    image: spell-checker
+    image: appsec4
     build:
       context: .
       dockerfile: Dockerfile
+    secrets:
+      - adminpass
+      - appconfig  
+    deploy:
+      mode: replicated
+      replicas: 4
     volumes:
       - "./:/app"
+secrets:
+    adminpass:
+            file: ./adminpass.txt    
+    appconfig:
+            file: ./appconfig.txt        
+
